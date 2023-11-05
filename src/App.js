@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import VirtualScroll from "./virtual-scroll";
+const totalItems = 100000;
+
+const items = new Array(totalItems).fill(null).map((_, index) => {
+  return (
+    <div style={{ height: "70px" }} key={index}>
+      <p>Row Number - {index}</p>
+    </div>
+  );
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Virtual Scroll From Scratch</h1>
+      <VirtualScroll
+        rowHeight={70}
+        totalItems={totalItems}
+        containerHeight="500px"
+        items={items}
+        visibleItemsLength={20}
+      ></VirtualScroll>
+    </>
   );
 }
-
 export default App;
