@@ -1,5 +1,7 @@
 import React from "react";
 import VirtualScroll from "./virtual-scroll";
+import ReactWindowFixedSizeEx from "./react-window-fixed-list";
+import ReactWindowVariableSizeEx from "./react-window-variable-list";
 const totalItems = 100000;
 
 const items = new Array(totalItems).fill(null).map((_, index) => {
@@ -21,6 +23,12 @@ function App() {
         items={items}
         visibleItemsLength={20}
       ></VirtualScroll>
+      <br />
+      <h1>React Window Fixed Size Example</h1>
+      <ReactWindowFixedSizeEx />
+      <br />
+      <h1>React Window Variable Size Example</h1>
+      <ReactWindowVariableSizeEx />
     </>
   );
 }
